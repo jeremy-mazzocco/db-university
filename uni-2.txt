@@ -1,0 +1,61 @@
+1.
+SELECT *
+FROM students
+WHERE year(date_of_birth) = 1990;
+
+2.
+SELECT *
+FROM courses
+WHERE cfu > 10;
+
+3.
+
+
+4.
+SELECT * 
+FROM `courses`
+WHERE year = 1 AND period = 'I semestre';
+
+5.
+SELECT * 
+FROM `exams`
+WHERE date = '20-06-2020' AND  hour > '14:00:00';
+
+6.
+SELECT * 
+FROM `degrees`
+WHERE level = 'magistrale';
+
+7.
+SELECT COUNT(*)
+FROM departments;
+
+8.
+SELECT *
+FROM teachers
+WHERE phone IS NULL;
+
+
+
+GROUP BY
+1.
+SELECT enrolment_date, COUNT(*)
+FROM students
+GROUP BY enrolment_date;
+
+2.
+SELECT office_address, COUNT(*) 
+FROM `teachers` 
+GROUP BY office_address;
+
+3.
+SELECT vote, COUNT(*) 
+FROM exam_student 
+GROUP BY vote;
+
+4.
+SELECT department_id, COUNT(*) 
+FROM `degrees` 
+GROUP BY department_id;
+
+
