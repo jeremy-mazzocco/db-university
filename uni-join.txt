@@ -1,0 +1,61 @@
+1.
+SELECT students.*
+FROM degrees
+JOIN students
+ON students.id = degrees.department_id
+WHERE degrees.name LIKE "Corso di Laurea in Economia";
+
+2.
+SELECT courses.*
+FROM departments
+    JOIN degrees
+        ON departments.id = degrees.department_id
+    JOIN courses
+        ON degrees.id = courses.degree_id
+WHERE degrees.level LIKE "magistrale" AND departments.name LIKE "Dipartimento di
+Neuroscienze";
+
+3.
+SELECT courses.*
+FROM teachers
+JOIN course_teacher
+ON teachers.id = course_teacher.teacher_id
+JOIN courses
+ON course_teacher.course_id = courses.id
+WHERE teachers.id LIKE "44";
+
+4.
+SELECT students.name, students.surname, degrees.name, departments.name
+FROM students
+JOIN degrees
+ON students.id = degrees.department_id
+JOIN departments
+ON degrees.id = departments.id
+ORDER BY students.surname ASC;
+
+5.
+SELECT degrees.name, courses.name, teachers.name
+FROM degrees
+JOIN courses
+ON degrees.id = courses.id
+JOIN course_teacher
+ON courses.id = course_teacher.course_id
+JOIN teachers
+ON course_teacher.teacher_id = teachers.id;
+
+6.
+SELECT teachers.*
+FROM departments
+JOIN degrees
+ON departments.id = degrees.id
+JOIN courses
+ON degrees.id = courses.id
+JOIN course_teacher
+ON courses.id = course_teacher.course_id
+JOIN teachers
+ON course_teacher.teacher_id = teachers.id
+WHERE departments.name LIKE "Dipartimento di Matematica";
+
+
+
+
