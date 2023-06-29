@@ -1,7 +1,7 @@
 1.
 SELECT *
 FROM students
-WHERE year(date_of_birth) = 1990;
+WHERE YEAR(date_of_birth) = 1990;
 
 2.
 SELECT *
@@ -9,6 +9,9 @@ FROM courses
 WHERE cfu > 10;
 
 3.
+SELECT *, YEAR(NOW())
+FROM studends
+WHERE YEAR(NOW()) - YEAR(date_of_birth) > 30;
 
 
 4.
@@ -31,7 +34,7 @@ SELECT COUNT(*)
 FROM departments;
 
 8.
-SELECT *
+SELECT COUNT(*)
 FROM teachers
 WHERE phone IS NULL;
 
@@ -49,9 +52,9 @@ FROM `teachers`
 GROUP BY office_address;
 
 3.
-SELECT vote, COUNT(*) 
+SELECT exam_id, AVG(vote) 
 FROM exam_student 
-GROUP BY vote;
+GROUP BY exam_id;
 
 4.
 SELECT department_id, COUNT(*) 
